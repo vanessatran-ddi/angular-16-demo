@@ -9,48 +9,50 @@
     <p>
       This project is a showcase of the design system at the DDI. Every component used is available for use in your service from Storybook. The equivalent is available for designers within the template library in Figma.
     </p>
-
-    <a target="_blank" href="https://ui-components.alberta.ca">Read the get started guide for more information</a>
+    <goa-form-item label="First name">
+      <goa-input goaValue [formControl]="itemFormCtrl" name="firstName"></goa-input>
+    </goa-form-item>
+    <goa-form-item label="Checkbox">
+      <goa-checkbox goaChecked name="desserts" text="Ice cream" [formControl]="icecreamFormCtrl"></goa-checkbox>
+    </goa-form-item>
   </goa-container>
 
-  <goa-divider mt="m" mb="m"></goa-divider>
+  <goa-button type="tertiary" (_click)="onClickAccordion()">
+    Show all sections
+  </goa-button>
+  <goa-accordion [open]="openAccordionGroup" heading="Heading">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+  </goa-accordion>
 
-  <goa-grid minChildWidth="30ch">
-    <section>
-      <goa-badge type="success" content="New"></goa-badge>
-      <h2 class="mt-1"><a href="/basic-form">Basic form</a></h2>
-      <p>
-        This page contains a basic form made up of a number of inputs, headings, and containers.
-      </p>
-    </section>
+  <goa-badge type="information" content="Information"></goa-badge>
 
-    <section>
-      <goa-badge type="information" content="Coming soon"></goa-badge>
-      <h2 class="mt-1">Complex tables</h2>
-      <p>This page is a showcase of the card component to try out the live component with mock data within a service.</p>
-    </section>
-  </goa-grid>
+  <goa-button-group alignment="start">
+    <goa-button leadingIcon="airplane" (_click)="onClick()" type="primary">Leading</goa-button>
+    <goa-button trailingIcon="airplane" (_click)="onClick()" type="primary">Trailing</goa-button>
+    <goa-button leadingIcon="archive" trailingIcon="airplane" (_click)="onClick()" type="primary">Both</goa-button>
+  </goa-button-group>
+  <goa-button-group alignment="start">
+    <goa-button leadingIcon="airplane" (_click)="onClick()" type="secondary">Leading</goa-button>
+    <goa-button trailingIcon="airplane" (_click)="onClick()" type="secondary">Trailing</goa-button>
+    <goa-button leadingIcon="archive" trailingIcon="airplane" (_click)="onClick()" type="secondary">Both</goa-button>
+  </goa-button-group>
+  <goa-button-group alignment="start">
+    <goa-button leadingIcon="airplane" (_click)="onClick()" type="tertiary">Leading</goa-button>
+    <goa-button trailingIcon="airplane" (_click)="onClick()" type="tertiary">Trailing</goa-button>
+    <goa-button leadingIcon="archive" trailingIcon="airplane" (_click)="onClick()" type="tertiary">Both</goa-button>
+  </goa-button-group>
 
-  <goa-grid minChildWidth="30ch">
-    <section>
-      <goa-badge type="information" content="Coming soon"></goa-badge>
-      <h2 class="mt-1">Form stepper</h2>
-      <p>This page is a showcase of the card component to try out the live component with mock data within a service.</p>
-    </section>
 
-    <section>
-      <div class="space-4"></div>
-      <h2 class="mt-1">
-        <a target="_blank" href="https://github.com/GovAlta/ui-components/issues/new/choose">+ Suggest a template</a>
-      </h2>
-      <p>Let us know what template you want to see and we will add it here.</p>
-    </section>
-  </goa-grid>
-
-  <goa-divider mt="l" mb="l"></goa-divider>
-
-  <goa-container type="non-interactive" mb="3xl">
-    <h2>Design system support</h2> 
-    <a href="https://goa-dio.slack.com/archives/C02PLLT9HQ9">Get in touch with the design system team on Slack #design-system-support</a>
-  </goa-container>
+  <goa-dropdown
+    goaValue
+    filterable="true"
+    name="colors"
+    [formControl]="dropdownFormCtrl">
+    <goa-dropdown-item
+      *ngFor="let color of colors"
+      [value]="color"
+      [label]="color"
+    >
+    </goa-dropdown-item>
+  </goa-dropdown>
 </main>

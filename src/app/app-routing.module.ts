@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'work-experience', component: WorkExperienceComponent },
   { path: 'basic-form', component: BasicFormComponent },
   { path: 'basic-form-success', component: BasicFormSuccessComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: "", redirectTo: "/", pathMatch: "full" },
 ];
 
 @NgModule({
